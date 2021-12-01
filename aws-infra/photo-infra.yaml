@@ -1,0 +1,14 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  PhotoBucket:
+    Type: AWS::S3::Bucket
+  WorkerQueue:
+    Type: AWS::SQS::Queue
+    Properties:
+      MessageRetentionPeriod: 600
+      VisibilityTimeout: 60
+Outputs:
+  S3Bucket:
+    Value: !Ref PhotoBucket
+  Queue:
+    Value: !Ref WorkerQueue
